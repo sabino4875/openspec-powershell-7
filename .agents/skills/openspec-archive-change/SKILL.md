@@ -4,14 +4,14 @@ description: Finalizar e arquivar uma mudança OpenSpec concluída, verificando 
 license: MIT
 compatibility: Requer PowerShell 7 (pwsh) e docs/scripts/openspec.ps1.
 metadata:
-  author: afixinv-local
+  author: openspec-powershell-7
   version: "2.0"
   mode: "pwsh7-no-cli"
 ---
 
 Finalizar e arquivar uma mudança OpenSpec concluída movendo-a para `openspec/changes/archive/YYYY-MM-DD-<nome>/`.
 
-**Permissão prévia (`GEMINI.md` §1.7):** peça permissão explícita ao usuário no chat listando literalmente cada comando `pwsh` antes de executá-lo.
+**Permissão prévia (`GEMINI.md`):** peça permissão explícita ao usuário no chat listando literalmente cada comando `pwsh` antes de executá-lo.
 
 ## Passos
 
@@ -85,4 +85,4 @@ Finalizar e arquivar uma mudança OpenSpec concluída movendo-a para `openspec/c
 - Nunca mova a pasta da mudança enquanto um sync estiver em andamento ou com falha na validação (`validate --specs`).
 - Não bloqueie permanentemente por avisos de tarefas/artefatos incompletos: alerte e exija confirmação explícita antes de usar `--force`.
 - Preserve `.openspec.yaml` dentro da pasta arquivada.
-- Peça permissão prévia antes de qualquer comando (`GEMINI.md` §1.7).
+- Peça permissão prévia antes de qualquer comando (`GEMINI.md`).

@@ -4,7 +4,7 @@ description: Propor uma nova mudança OpenSpec gerando todos os artefatos de pla
 license: MIT
 compatibility: Requer PowerShell 7 (pwsh) e docs/scripts/openspec.ps1.
 metadata:
-  author: afixinv-local
+  author: openspec-powershell-7
   version: "2.0"
   mode: "pwsh7-no-cli"
 ---
@@ -13,7 +13,7 @@ Propor uma nova mudança OpenSpec — cria o diretório da mudança e gera os ar
 
 **Limite de planejamento (Planning boundary):** este fluxo cria **apenas artefatos de planejamento**. A solicitação que acionou esta skill autoriza somente o planejamento, mesmo que o pedido também mencione implementar ou corrigir algo. **Não edite código de implementação** e não inicie o fluxo `apply` nesta mesma resposta. Ao concluir todos os artefatos, pare e aguarde um novo pedido explícito do usuário para iniciar a implementação.
 
-**Permissão prévia (`GEMINI.md` §1.7):** peça permissão explícita ao usuário no chat listando literalmente cada comando `pwsh` antes de executá-lo, sempre fora do sandbox e de forma síncrona (`GEMINI.md` §1.6).
+**Permissão prévia (`GEMINI.md`):** peça permissão explícita ao usuário no chat listando literalmente cada comando `pwsh` antes de executá-lo, sempre fora do sandbox e de forma síncrona (`GEMINI.md`).
 
 ## Padrão de execução
 
@@ -29,14 +29,14 @@ pwsh -NoProfile -ExecutionPolicy Bypass -File "docs/scripts/openspec.ps1" <subco
 - `design.md` (como — **condicional/opcional**)
 - `tasks.md` (etapas de implementação)
 
-`<capability-path>` é o diretório relativo dentro de `specs/` (ex.: `autenticacao` ou `servico/relatorios`). Preserve exatamente o caminho de capabilities já existentes em `openspec/specs/`.
+`<capability-path>` é o diretório relativo dentro de `specs/` (ex.: `autenticacao` ou `dominio/relatorios`). Preserve exatamente o caminho de capabilities já existentes em `openspec/specs/`.
 
 ## Passos
 
 1. **Entender a solicitação e esclarecer ambiguidades**
    - Se o usuário não descreveu claramente o que deseja construir ou corrigir, pergunte antes de prosseguir.
    - Derive um nome em `kebab-case` (ex.: `add-export-csv`).
-   - Se houver ambiguidade material de escopo, comportamento observável, compatibilidade (especialmente no contrato REST Base64 `ReceiveData/SendData`) ou critérios de aceitação, pergunte ao usuário antes de criar a mudança. Para detalhes menores, registre premissas razoáveis nos artefatos.
+   - Se houver ambiguidade material de escopo, comportamento observável, compatibilidade de contratos/interfaces definidos pelo projeto ou critérios de aceitação, pergunte ao usuário antes de criar a mudança. Para detalhes menores, registre premissas razoáveis nos artefatos.
 
 2. **Verificar raiz e carregar contexto do projeto**
    - Execute (após permissão):
@@ -44,7 +44,7 @@ pwsh -NoProfile -ExecutionPolicy Bypass -File "docs/scripts/openspec.ps1" <subco
      pwsh -NoProfile -ExecutionPolicy Bypass -File "docs/scripts/openspec.ps1" context --json
      ```
    - Se retornar `error: "no_openspec_root"` (`root: null`), **pare imediatamente** sem criar `openspec/` como efeito colateral e informe o usuário.
-   - Leia `openspec/config.yaml` do disco e aplique `context` e `rules` como restrições internas — **nunca** copie esses blocos para dentro dos artefatos.
+   - Leia `openspec/config.yaml` do disco e aplique a linguagem, stack, arquitetura, `context` e `rules` definidos pelo usuário como restrições internas — **nunca** copie esses blocos para dentro dos artefatos.
 
 3. **Criar o diretório da mudança**
    - Nunca crie `openspec/changes/<nome>` manualmente sem `.openspec.yaml`.
@@ -68,14 +68,14 @@ pwsh -NoProfile -ExecutionPolicy Bypass -File "docs/scripts/openspec.ps1" <subco
       pwsh -NoProfile -ExecutionPolicy Bypass -File "docs/scripts/openspec.ps1" instructions "<artifact-id>" --change "<nome>" --json
       ```
    b. Re-leia do disco os arquivos listados em `dependencies`.
-   c. **Inspecione o projeto antes de redigir:** leia de forma somente leitura código, testes, configurações e documentação em `docs/projects/` e `openspec/specs/` relevantes. Diferencie comportamento observado de premissas e aponte conflitos com specs existentes ao usuário.
+   c. **Inspecione o projeto antes de redigir:** leia de forma somente leitura código, testes, configurações e documentação do repositório e `openspec/specs/` relevantes. Diferencie comportamento observado de premissas e aponte conflitos com specs existentes ao usuário.
    d. **Escolha o caminho concreto:**
       - Para `specs`, escolha `<changeRoot>/specs/<capability-path>/spec.md` e confirme que o caminho resolvido permanece dentro de `changeRoot`.
       - Para os demais artefatos, use `resolvedOutputPath`.
    e. **Avalie condição de pulo:**
       - Se `skipped: true` (por `skip_specs: true`), **não** crie o artefato.
       - Se `optional: true` (`design.md`), você pode pular deliberadamente quando não houver decisões arquiteturais, mudanças de contrato/schema ou trade-offs relevantes; informe o usuário e não reconsidere o pulo.
-   f. Escreva o artefato seguindo estritamente `template`, `instruction`, `context` e `rules` (sem copiar `context`/`rules` no conteúdo) e verifique que o arquivo existe no disco.
+   f. Escreva o artefato seguindo estritamente `template`, `instruction`, `context` e `rules` definidos pelo usuário (sem copiar `context`/`rules` no conteúdo) e verifique que o arquivo existe no disco.
    g. Re-execute `status --change "<nome>" --json` após cada criação até que todos os artefatos requeridos por `applyRequires` e suas dependências transitivas estejam `done`, `skipped` ou deliberadamente pulados.
 
 6. **Validar os delta specs gerados**

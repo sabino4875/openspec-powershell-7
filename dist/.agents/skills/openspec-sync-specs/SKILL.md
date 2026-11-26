@@ -4,7 +4,7 @@ description: Sincronizar delta specs de uma mudança OpenSpec para as especifica
 license: MIT
 compatibility: Requer PowerShell 7 (pwsh) e docs/scripts/openspec.ps1.
 metadata:
-  author: afixinv-local
+  author: openspec-powershell-7
   version: "2.0"
   mode: "pwsh7-no-cli"
 ---
@@ -13,9 +13,9 @@ Sincronizar delta specs de uma mudança OpenSpec para as especificações princi
 
 Esta é uma operação **dirigida pelo agente**: você lê os delta specs e aplica um **merge inteligente** nas specs principais, preservando conteúdo existente que não foi alterado.
 
-**Permissão prévia (`GEMINI.md` §1.7):** peça permissão explícita ao usuário no chat listando literalmente cada comando `pwsh` antes de executá-lo.
+**Permissão prévia (`GEMINI.md`):** peça permissão explícita ao usuário no chat listando literalmente cada comando `pwsh` antes de executá-lo.
 
-`<capability-path>` é o diretório relativo dentro de `specs/` (ex.: `autenticacao` ou `servico/relatorios`). Preserve exatamente o mesmo `<capability-path>` entre delta spec e spec principal.
+`<capability-path>` é o diretório relativo dentro de `specs/` (ex.: `autenticacao` ou `dominio/relatorios`). Preserve exatamente o mesmo `<capability-path>` entre delta spec e spec principal.
 
 ## Passos
 

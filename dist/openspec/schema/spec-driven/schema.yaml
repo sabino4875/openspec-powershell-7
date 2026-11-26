@@ -3,7 +3,7 @@
 
 name: spec-driven
 version: 1
-description: Fluxo orientado a especificações do monorepo Afixinv (proposal -> specs -> design -> tasks).
+description: Fluxo orientado a especificações agnóstico a linguagem e arquitetura (proposal -> specs -> design -> tasks).
 
 change_meta_template: change-meta.yaml
 

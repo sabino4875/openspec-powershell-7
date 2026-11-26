@@ -10,12 +10,12 @@ Descreva de forma objetiva e verificável o comportamento, fluxo, API ou estrutu
 
 ## Projetos e impactos
 
-- **Projeto(s) afetado(s):** `<servico | aplicativo | ambos>`
-- **Módulos / camadas / features impactados:**
-  - `<caminho ou módulo>`
-- **Impacto no contrato REST Afixbase (envelope Base64 `ReceiveData/SendData`):** `<nenhum | descrever impacto e compatibilidade>`
-- **Documentos em `docs/projects/` impactados:**
-  - `<ex.: docs/projects/servico/documentation/API_SPECIFICATION.md>`
+- **Módulo(s) / serviço(s) / pacote(s) afetado(s):** `<listar projetos ou módulos conforme arquitetura definida pelo usuário>`
+- **Camadas / componentes impactados:**
+  - `<caminho, camada ou componente>`
+- **Impacto em contratos, APIs ou interfaces públicas:** `<nenhum | descrever impacto e compatibilidade>`
+- **Documentação do projeto impactada:**
+  - `<ex.: docs/ARCHITECTURE.md, README.md ou especificação de API>`
 
 ## Capabilities
 

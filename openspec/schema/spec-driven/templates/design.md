@@ -2,7 +2,7 @@
 
 ## Contexto
 
-Resumo técnico do estado atual (arquitetura, classes/componentes, fluxos, restrições relevantes do monorepo).
+Resumo técnico do estado atual (arquitetura, módulos/camadas, fluxos e restrições definidos pelo usuário em `openspec/config.yaml` e no projeto).
 
 ## Objetivos e não-objetivos
 
@@ -16,20 +16,20 @@ Resumo técnico do estado atual (arquitetura, classes/componentes, fluxos, restr
 ### Decisão 1: <título da decisão>
 - **Escolha:** `<opção adotada>`
 - **Alternativas consideradas:** `<alternativa A>`, `<alternativa B>`
-- **Justificativa:** `<por que esta escolha respeita camadas, stack e restrições do projeto>`
+- **Justificativa:** `<por que esta escolha respeita a linguagem, arquitetura, camadas e restrições definidas pelo usuário>`
 
 ## Arquitetura e componentes afetados
 
-<!-- Respeitar camadas: servico/ (EndPoints -> CrossCutting -> Application -> Domain -> InfraEstructure) ou aplicativo/ (data/domain/presentation por feature). -->
+<!-- Respeitar rigorosamente a arquitetura, camadas e limites de módulos definidos pelo usuário no projeto. -->
 
 - `<componente / arquivo>`: `<papel na mudança>`
 
 ## Contratos, dados e segurança
 
-- **Contrato REST / Envelope Base64 (`ReceiveData/SendData`):** `<detalhes ou "Sem alterações">`
-- **Persistência (`Dapper` / `SQL Server` / `sqflite`):** `<consultas parametrizadas, schemas, tabelas afetadas>`
-- **Validação e autenticação/autorização:** `<FluentValidation, JWT, ApiKey, permissões>`
-- **Guardrails aplicáveis:** `<ex.: sem interpolação de ORDER BY/OFFSET; offline-first preservado; sem segredos commitados>`
+- **Contratos de API / Interfaces públicas / Eventos:** `<detalhes ou "Sem alterações">`
+- **Persistência e modelo de dados:** `<schemas, consultas, migrações ou armazenamento conforme stack definida pelo usuário>`
+- **Validação, autenticação e autorização:** `<regras de validação, políticas de acesso e permissões>`
+- **Guardrails aplicáveis:** `<ex.: prevenção de injeção, compatibilidade retroativa, proibição de segredos versionados>`
 
 ## Riscos, trade-offs e mitigação
 
@@ -37,5 +37,5 @@ Resumo técnico do estado atual (arquitetura, classes/componentes, fluxos, restr
 
 ## Estratégia de verificação e testes
 
-- **Testes automatizados:** `<xUnit v3 em servico/ sem I/O real; flutter test + flutter analyze em aplicativo/>`
+- **Testes automatizados:** `<testes unitários, de integração ou contrato utilizando as ferramentas definidas pelo usuário>`
 - **Testes manuais / validações:** `<cenários a confirmar com o usuário>`

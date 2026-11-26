@@ -4,14 +4,14 @@ description: Atualizar uma mudança OpenSpec revisando seus artefatos de planeja
 license: MIT
 compatibility: Requer PowerShell 7 (pwsh) e docs/scripts/openspec.ps1.
 metadata:
-  author: afixinv-local
+  author: openspec-powershell-7
   version: "2.0"
   mode: "pwsh7-no-cli"
 ---
 
 Revisar artefatos de planejamento existentes de uma mudança OpenSpec e mantê-los coerentes entre si. **Nunca edite código de implementação** neste fluxo.
 
-**Permissão prévia (`GEMINI.md` §1.7):** peça permissão explícita ao usuário no chat listando literalmente cada comando `pwsh` antes de executá-lo.
+**Permissão prévia (`GEMINI.md`):** peça permissão explícita ao usuário no chat listando literalmente cada comando `pwsh` antes de executá-lo.
 
 Este fluxo revisa artefatos já existentes; ele **não** cria artefatos principais faltantes (`proposal`, `design`, `tasks`) nem toca em artefatos marcados como `skipped`.
 

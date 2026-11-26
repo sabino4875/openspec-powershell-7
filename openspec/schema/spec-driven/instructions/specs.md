@@ -2,7 +2,7 @@
 
 ## Onde criar os arquivos
 
-- Caminho: `openspec/changes/<nome-da-mudanca>/specs/<capability-path>/spec.md` (ex.: `specs/autenticacao/spec.md` ou `specs/servico/relatorios/spec.md`).
+- Caminho: `openspec/changes/<nome-da-mudanca>/specs/<capability-path>/spec.md` (ex.: `specs/autenticacao/spec.md` ou `specs/dominio/relatorios/spec.md`).
 - Se a capability já existir em `openspec/specs/<capability-path>/spec.md`, preserve exatamente o mesmo `<capability-path>`.
 - Se `skip_specs: true` estiver definido em `.openspec.yaml`, este artefato **não deve** ser criado.
 

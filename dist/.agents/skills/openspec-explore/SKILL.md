@@ -4,7 +4,7 @@ description: Entrar no modo de exploração OpenSpec — parceiro de reflexão p
 license: MIT
 compatibility: Requer PowerShell 7 (pwsh) e docs/scripts/openspec.ps1.
 metadata:
-  author: afixinv-local
+  author: openspec-powershell-7
   version: "2.0"
   mode: "pwsh7-no-cli"
 ---
@@ -13,12 +13,12 @@ Entrar no modo de exploração. Pensar com profundidade, investigar o código re
 
 **Regra fundamental — explorar não é implementar:** você pode ler arquivos, pesquisar no código e investigar arquitetura e documentação, mas **NUNCA** deve implementar features ou editar código de produção. Se o usuário pedir para implementar algo, explique que o modo explore não implementa e indique `/opsx-propose` para formalizar a mudança primeiro. Você também não deve alterar `openspec/config.yaml` ou `openspec/schema/`.
 
-**Permissão prévia (`GEMINI.md` §1.7):** leituras diretas de arquivos não usam shell, porém qualquer comando `pwsh` de consulta (`list`, `status`, `show`) exige permissão prévia no chat listando o comando literal antes da execução.
+**Permissão prévia (`GEMINI.md`):** leituras diretas de arquivos não usam shell, porém qualquer comando `pwsh` de consulta (`list`, `status`, `show`) exige permissão prévia no chat listando o comando literal antes da execução.
 
 ## Postura de exploração
 
 - **Curioso, não prescritivo:** faça perguntas focadas que destravem a próxima decisão bloqueante; não imponha um roteiro rígido.
-- **Fundamentado no código:** antes de perguntar fatos verificáveis, leia os arquivos de `servico/`, `aplicativo/`, `docs/projects/` e `openspec/` relevantes. Separe fatos observados de suposições e decisões confirmadas.
+- **Fundamentado no código e na arquitetura definida pelo usuário:** antes de perguntar fatos verificáveis, leia os diretórios de código-fonte, testes, documentação do projeto e `openspec/` relevantes. Separe fatos observados de suposições e decisões confirmadas.
 - **Visual com ASCII puro:** use diagramas ASCII (`+`, `-`, `|`, `-->`, `<--`, `^`, `v`, `*`) para fluxos, arquiteturas, tabelas de comparação e máquinas de estado. Evite caracteres Unicode de caixa que desalinhavam largura entre fontes.
 - **Registro apenas conversacional:** mantenha decisões e alternativas na conversa, nunca em arquivos sem confirmação explícita. Responder perguntas ou concordar com uma recomendação **não** é autorização para criar ou editar arquivos.
 
@@ -44,7 +44,7 @@ Quando útil, após pedir permissão para executar `pwsh`:
   pwsh -NoProfile -ExecutionPolicy Bypass -File "docs/scripts/openspec.ps1" status --change "<nome>" --json
   ```
 
-Leia também `openspec/config.yaml` para ter o contexto e as restrições do monorepo em mente sem reproduzi-los textualmente.
+Leia também `openspec/config.yaml` para ter o contexto, a stack, a arquitetura e as restrições definidos pelo usuário em mente sem reproduzi-los textualmente.
 
 ## Captura sob confirmação explícita
 

@@ -13,4 +13,4 @@
    - Destino em `openspec/changes/archive/<target-name>`: use o próprio `<name>` se já começar com `YYYY-MM-DD-`, ou `YYYY-MM-DD-<name>` caso contrário (nunca empilhar duas datas).
    - Se o diretório de destino já existir, falhe com erro claro sem sobrescrever.
    - Preserve `.openspec.yaml` dentro da pasta arquivada (move junto com o diretório).
-5. **Permissão prévia:** lembre-se de solicitar permissão no chat antes de executar o comando `pwsh` de validação/arquivamento ou comandos `git` (`GEMINI.md` §1.7).
+5. **Permissão prévia:** lembre-se de solicitar permissão no chat antes de executar o comando `pwsh` de validação/arquivamento ou comandos `git` (`GEMINI.md`).
