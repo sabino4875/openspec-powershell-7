@@ -1,0 +1,56 @@
+# Schema spec-driven local (modo sem CLI / PowerShell 7)
+# Consumido por docs/scripts/openspec.ps1 e pelas skills .agents/skills/openspec-*.
+
+name: spec-driven
+version: 1
+description: Fluxo orientado a especificações do monorepo Afixinv (proposal -> specs -> design -> tasks).
+
+change_meta_template: change-meta.yaml
+
+apply:
+  requires:
+    - tasks
+  tracks: tasks.md
+  instruction: instructions/apply.md
+
+archive:
+  instruction: instructions/archive.md
+
+artifacts:
+  - id: proposal
+    generates: proposal.md
+    is_glob: false
+    optional: false
+    template: templates/proposal.md
+    instruction: instructions/proposal.md
+    requires: []
+
+  - id: specs
+    generates: specs/**/*.md
+    is_glob: true
+    optional: false
+    skippable_by: skip_specs
+    template: templates/spec-delta.md
+    instruction: instructions/specs.md
+    requires:
+      - proposal
+
+  - id: design
+    generates: design.md
+    is_glob: false
+    optional: true
+    template: templates/design.md
+    instruction: instructions/design.md
+    requires:
+      - proposal
+      - specs
+
+  - id: tasks
+    generates: tasks.md
+    is_glob: false
+    optional: false
+    template: templates/tasks.md
+    instruction: instructions/tasks.md
+    requires:
+      - specs
+      - design
