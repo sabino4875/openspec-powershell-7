@@ -1,0 +1,21 @@
+schema: spec-driven
+
+context: |
+  Defina aqui o contexto técnico do seu projeto: linguagem de programação, runtime,
+  arquitetura (camadas, módulos, padrões), ferramentas de build/teste e restrições
+  que o agente deve respeitar em todas as mudanças OpenSpec.
+
+rules:
+  proposal:
+    - Definir claramente o problema, o escopo positivo e o que está fora de escopo.
+    - Respeitar a arquitetura e os módulos definidos pelo usuário no projeto.
+    - Listar todas as capabilities impactadas em openspec/specs/.
+  specs:
+    - Utilizar linguagem normativa (SHALL ou MUST) em todos os requisitos.
+    - Incluir ao menos um cenário GIVEN / WHEN / THEN por requisito.
+  design:
+    - Respeitar estritamente a linguagem, stack e arquitetura definidas pelo usuário.
+    - Documentar decisões técnicas, contratos, modelo de dados e estratégia de testes.
+  tasks:
+    - Organizar a implementação em etapas sequenciais e verificáveis (uma etapa por vez).
+    - Incluir validação de build, análise estática e testes automatizados da stack do projeto.

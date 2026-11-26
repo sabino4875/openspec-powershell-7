@@ -1,0 +1,4 @@
+schema: spec-driven
+created: YYYY-MM-DD
+skip_specs: false
+retire_capabilities: false

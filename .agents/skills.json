@@ -1,0 +1,35 @@
+{
+  "version": "1.0",
+  "entries": [
+    {
+      "name": "openspec-propose",
+      "path": "skills/openspec-propose/SKILL.md",
+      "description": "Propor uma nova mudança com artefatos de planejamento (proposal, specs, design opcional e tasks) via PowerShell 7."
+    },
+    {
+      "name": "openspec-explore",
+      "path": "skills/openspec-explore/SKILL.md",
+      "description": "Modo de exploração para amadurecer ideias, investigar problemas e esclarecer requisitos."
+    },
+    {
+      "name": "openspec-apply-change",
+      "path": "skills/openspec-apply-change/SKILL.md",
+      "description": "Implementar tarefas de uma mudança OpenSpec etapa por etapa."
+    },
+    {
+      "name": "openspec-update-change",
+      "path": "skills/openspec-update-change/SKILL.md",
+      "description": "Atualizar e manter coerentes os artefatos de planejamento de uma mudança OpenSpec."
+    },
+    {
+      "name": "openspec-sync-specs",
+      "path": "skills/openspec-sync-specs/SKILL.md",
+      "description": "Sincronizar delta specs de uma mudança para as especificações principais em openspec/specs/."
+    },
+    {
+      "name": "openspec-archive-change",
+      "path": "skills/openspec-archive-change/SKILL.md",
+      "description": "Finalizar e arquivar uma mudança OpenSpec concluída."
+    }
+  ]
+}
