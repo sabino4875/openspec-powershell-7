@@ -7,6 +7,5 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/Dotnet.gitignore
 
-GEMINI.md
 /.agents/skills/tutorial-engineer/*
 /.agents/skills/product-manager/*
